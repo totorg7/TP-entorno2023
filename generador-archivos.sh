@@ -1,6 +1,36 @@
 #!/bin/bash
 
 generador-texto() {
-  base64 /dev/urandom | head -c 500 > file.txt
-  echo "Archivo de texto creado"
+	base64 /dev/urandom | head -c 500 > file.txt
+	echo "Archivo de texto creado"
 }
+
+generador-sonido() {
+	ffmpeg -f lavfi -i "anoisesrc=a=0.1:c=white:duration=5" out.wav
+	echo "Archivo de sonido creado"
+}
+
+generador-imagen() {
+	convert -size 100x100 xc: +noise Random noise.png
+	echo "Archivo de imagen creado"
+}
+
+
+
+read -p "Ingrese el numero de operacion del 1 al 3: " numero
+
+
+case $numero in
+	1)
+		generador-texto
+		;;
+	2)
+		generador-sonido
+		;;
+	3)
+		generador-imagen
+		;;
+	*)
+		echo "Lea el titulo!"
+		;;
+esac
