@@ -46,7 +46,7 @@ clasificador_archivo() {
 }
 
 
-shopt -s nullglob
+
 for archivo_actual in "$ruta"/*; do
 	if [ -f "$archivo_actual" ]; then
 		clasificador_archivo "$archivo_actual"
