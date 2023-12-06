@@ -1,22 +1,34 @@
 #!/bin/bash
 
-echo "1-Clasificador"
-echo "2-Monitoreo de sistema"
-echo "3-Analizador de textos"
-echo "4-Salir"
+echo "1-Generador"
+echo "2-Clasificador"
+echo "3-Monitoreo de sistema"
+echo "4-Analizador de textos"
+echo "5-Salir"
 
 read -p "Ingrese su opcion: " opcion
 
 case $opcion in
 	1)
 		echo "Procesando archivos..."
+		echo "1-Generador de texto"
+		echo "2-Generador de sonidos"
+		echo "3-Generador de imagenes"
+		./generador-archivos.sh
 	;;
 
 	2)
-		echo "Extrayendo informacion del sistema..."
+		echo "Clasificando archivos..."
+		./clasificador.sh
+
 	;;
 
 	3)
+		echo "Extrayendo informacion del sistema..."
+		./monitor.sh
+	;;
+
+	4)
 		echo "Analizando...: "
 		echo "a-Longitud de palabras"
 		echo "b-Palabras palindromes"·
@@ -26,6 +38,7 @@ case $opcion in
 		case $analizador in
 			a)
 				echo "Midiendo palabras..."
+				./largo-p.sh
 			;;
 
                        	b)
@@ -42,8 +55,8 @@ case $opcion in
 		esac
 	;;
 
-	4)
-		echo "Saliendo del prorama..."
+	5)
+		echo "Saliendo del programa..."
 		exit 0
 	;;
 
