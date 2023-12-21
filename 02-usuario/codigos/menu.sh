@@ -34,7 +34,7 @@ while true; do
                     1)
                         # Lógica para estadísticas de longitud de palabras
                         echo "Calculando estadísticas de longitud de palabras..."
-			./statwords.sh
+			./statswords.sh
                         ;;
                     2)
                         # Lógica para palabras palíndromo
@@ -44,7 +44,7 @@ while true; do
                     3)
                         # Lógica para detección y listado de direcciones de correo
                         echo "Detectando y listando direcciones de correo..."
-			./emails.sh
+			./email.sh
                         ;;
                     4)
                         break  # Salir del submenú
