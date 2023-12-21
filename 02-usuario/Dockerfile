@@ -1,9 +1,10 @@
 FROM ubuntu:latest
 MAINTAINER Tomás, Valentín
 
-WORKDIR /app
+WORKDIR app
 
-ADD funcionalidades/
+ADD codigos/ .
 
-ENTRYPOINT ["cron", "-f"]
+
+ENTRYPOINT ["bash", "menu.sh"]
 
