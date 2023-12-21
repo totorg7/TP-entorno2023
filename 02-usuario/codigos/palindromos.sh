@@ -15,7 +15,13 @@ if [ ! -f $archivo ]; then
 fi
 
 # Palabras palíndromo
-palindromos=palindromos=$(grep -o -i -E '\b(\w+)\b' "$archivo" | while read -r word; do l=$(echo "$word" | tr '[:upper:]' '[:lower:]'); [ "$l" == "$(echo "$l" | rev)" ] && echo "$word"; done | sort -u)
+palindromos=palindromos=$(grep -o -i -E '\b(\w+)\b' "$archivo" | while read -r word; do
+
+	l=$(echo "$word" | tr '[:upper:]' '[:lower:]');
+
+	[ "$l" == "$(echo "$l" | rev)" ] && [ ${#l} -ge 2 ] && echo "$word"
+done | sort -u)
+
 
 echo "Palabras palíndromo:"
 echo "$palindromos"
