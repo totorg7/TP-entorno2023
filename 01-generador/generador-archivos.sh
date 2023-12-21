@@ -1,4 +1,5 @@
 #!/bin/bash
+#crear directorio gen-output si no existe
 mkdir -p gen-output/
 
 generador-texto() {
