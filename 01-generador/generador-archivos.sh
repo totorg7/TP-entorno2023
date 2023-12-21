@@ -8,7 +8,7 @@ generador-texto() {
 }
 
 generador-sonido() {
-	ffmpeg -f lavfi -i "anoisesrc=a=0.1:c=white:duration=5" gen-output/out.wav
+	ffmpeg -f -y -hide_banner -loglevel error lavfi -i "anoisesrc=a=0.1:c=white:duration=5" gen-output/out.wav
 	echo "Archivo de sonido creado"
 }
 
