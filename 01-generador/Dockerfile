@@ -1,3 +1,4 @@
+
 FROM ubuntu:latest
 MAINTAINER Tomás, Valentín
 
@@ -8,8 +9,10 @@ RUN apt install file -y
 RUN apt install ffmpeg -y --fix-missing
 RUN apt install imagemagick-6.q16 -y
 
-ADD ["generador-archivos.sh", "/script"]
+ADD ["generador-archivos.sh", "."]
+ADD ["etc/cron.d/cron", "/etc/cron.d/cron"]
 
-RUN crontab /utl/cron
+RUN chmod u+x generador-archivos.sh
+RUN crontab /etc/cron.d/cron
 
-ENTRYPOINT ["cron", "-f"]
+ENTRYPOINT ["./generador-archivos.sh"]
